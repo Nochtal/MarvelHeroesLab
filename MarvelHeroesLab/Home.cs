@@ -35,7 +35,9 @@ namespace MarvelHeroesLab
         }
         #endregion
         #region VARIABLES
-
+        SuperHeroes frmSuperHeroes = new SuperHeroes();
+        ShieldAgents frmShieldAgents = new ShieldAgents();
+        Villains frmVillains = new Villains();
         #endregion
         #region PUBLIC METHODS
         
@@ -44,7 +46,40 @@ namespace MarvelHeroesLab
 
         #endregion
         #region EVENTS
+        private void btnOpenHeroes_Click(object sender, EventArgs e)
+        {
+            // Button to open the form for Super Heroes
+            // Determine if form is already created or not.
+            if (frmSuperHeroes != null) frmSuperHeroes.Show();
+            else // If doesn't already exist, create a new one.
+            {
+                frmSuperHeroes = new SuperHeroes();
+                frmSuperHeroes.Show();
+            }
+        }
 
+        private void btnOpenShieldAgents_Click(object sender, EventArgs e)
+        {
+            // Button to open the form for SHIELD Agents
+            // Determine if form is already created or not.
+            if (frmShieldAgents != null) frmShieldAgents.Show();
+            else // If doesn't already exist, create a new one.
+            {
+                frmShieldAgents = new ShieldAgents();
+                frmShieldAgents.Show();
+            }
+        }
+
+        private void btnOpenVillains_Click(object sender, EventArgs e)
+        {
+            // Button to open the form for Villains
+            if (frmVillains != null) frmVillains.Show();
+            else // If doesn't already exist, create a new one.
+            {
+                frmVillains = new Villains();
+                frmVillains.Show();
+            }
+        }
         #endregion
     }
 }

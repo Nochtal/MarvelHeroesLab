@@ -44,6 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShieldAgents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShieldAgents.Designer.cs">
+      <DependentUpon>ShieldAgents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuperHeroes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperHeroes.Designer.cs">
+      <DependentUpon>SuperHeroes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Villains.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Villains.Designer.cs">
+      <DependentUpon>Villains.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
