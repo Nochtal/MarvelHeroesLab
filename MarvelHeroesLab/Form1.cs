@@ -14,7 +14,7 @@ namespace MarvelHeroesLab
     ///     By Brendan CMG and Nochtal B
     ///  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ///  For use with the Debugging and Troubleshooting Workshop
-    ///  April 29th, 2016
+    ///  April 29th, 2016, at 2:00 pm
     ///  Renton Technical College, hosted by CHIPS
     ///     3000 NE 4th Street
     ///     C-102
@@ -23,6 +23,7 @@ namespace MarvelHeroesLab
     
     public partial class Form1 : Form
     {
+        #region LOAD
         public Form1()
         {
             InitializeComponent();
@@ -32,5 +33,18 @@ namespace MarvelHeroesLab
         {
 
         }
+        #endregion
+        #region VARIABLES
+
+        #endregion
+        #region PUBLIC METHODS
+        
+        #endregion
+        #region PRIVATE METHODS
+
+        #endregion
+        #region EVENTS
+
+        #endregion
     }
 }
