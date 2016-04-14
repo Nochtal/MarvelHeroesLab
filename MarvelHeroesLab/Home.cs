@@ -21,10 +21,10 @@ namespace MarvelHeroesLab
     ///     Renton, WA 98056
     ///   chips@student.rtc.edu
     
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
         #region LOAD
-        public Form1()
+        public Home()
         {
             InitializeComponent();
         }

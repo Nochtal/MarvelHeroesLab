@@ -1,6 +1,6 @@
 ﻿namespace MarvelHeroesLab
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
