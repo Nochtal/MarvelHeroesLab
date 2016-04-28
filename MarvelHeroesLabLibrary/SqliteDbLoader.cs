@@ -1,58 +1,83 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 using System.Data.SQLite;
+using System.Linq;
 
 namespace MarvelHeroesLabLibrary
 {
     public class SqliteDbLoader
     {
-        public SqliteDbLoader()
-        {
+        private SQLiteConnection _connection;
 
+        public SqliteDbLoader(string connectionString)
+        {
+            _connection = new SQLiteConnection(connectionString);
+            _connection.Open();
         }
 
-        public List<Villian> GetAllVillians()
+        public DataSet ExecuteSql(string sql)
         {
-            var villians = new List<Villian>();
-            using (System.Data.SQLite.SQLiteConnection connection = new System.Data.SQLite.SQLiteConnection("Data Source=.\\Villians.db"))
-            {
-                connection.Open();
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM Villian",connection);
-                var reader = command.ExecuteReader();
-                while (reader.Read())
+            var db = new SQLiteDataAdapter(sql, _connection);
+            var dataSet = new DataSet();
+            db.Fill(dataSet);
+            return dataSet;
+        }
+
+        public List<Villain> GetAllVillians()
+        {
+            var sql = "SELECT * FROM Villain";
+            var dataTable = ExecuteSql(sql).Tables[0];
+            return (from DataRow row in dataTable.Rows
+                select new Villain
                 {
-                    var villian = new Villian();
-                    villian.Id = (int)reader["Id"];
-                    villian.Name = (string)reader["Name"];
-                    villian.Description = (string)reader["Description"];
-                    villian.Powers = GetAllPowersForVillian(villian.Id);
-                    villians.Add(villian);
-                }
-            }
-            return villians;
+                    Id = Convert.ToInt32(row["Id"]),
+                    Name = (string) row["Name"],
+                    Description = (string) row["Description"],
+                    Powers = GetAllPowersForVillian(Convert.ToInt32(row["Id"]))
+                }).ToList();
         }
 
         private List<Power> GetAllPowersForVillian(int vId)
         {
-            var powers = new List<Power>();
-            using (System.Data.SQLite.SQLiteConnection connection = new System.Data.SQLite.SQLiteConnection("Data Source=.\\Villians.db"))
-            {
-                connection.Open();
-                SQLiteCommand command = new SQLiteCommand(string.Format("select p.* from Power p join powertovillian ptv ON p.Id = ptv.Id WHERE ptv.VillianId = {0}", vId), connection);
-                var reader = command.ExecuteReader();
-                while (reader.Read())
+            var sql = string.Format(
+                    "SELECT p.* FROM Power p JOIN PowerToVillain ptv ON p.Id = ptv.Id WHERE ptv.VillainId = {0}", vId);
+            var dataTable = ExecuteSql(sql).Tables[0];
+            return (from DataRow row in dataTable.Rows
+                select new Power
                 {
-                    var power = new Power();
-                    power.Id = (int)reader["Id"];
-                    power.Name = (string)reader["Name"];
-                    power.Description = (string)reader["Description"];
-                    powers.Add(power);
-                }
-            }
-            return powers;
+                    Id = Convert.ToInt32(row["Id"]),
+                    Name = (string) row["Name"],
+                    Description = (string) row["Description"]
+                }).ToList();
+        }
+
+        public List<Hero> GetAllHeroes()
+        {
+            var sql = "SELECT * FROM Hero";
+            var dataTable = ExecuteSql(sql).Tables[0];
+            return (from DataRow row in dataTable.Rows
+                    select new Hero
+                    {
+                        Id = Convert.ToInt32(row["Id"]),
+                        Name = (string)row["Name"],
+                        Description = (string)row["Description"],
+                        Powers = GetAllPowersForHero(Convert.ToInt32(row["Id"]))
+                    }).ToList();
+        }
+
+        private List<Power> GetAllPowersForHero(int hId)
+        {
+            var sql = string.Format(
+                    "SELECT p.* FROM Power p JOIN PowerToHero pth ON p.Id = pth.Id WHERE pth.HeroId = {0}", hId);
+            var dataTable = ExecuteSql(sql).Tables[0];
+            return (from DataRow row in dataTable.Rows
+                    select new Power
+                    {
+                        Id = Convert.ToInt32(row["Id"]),
+                        Name = (string)row["Name"],
+                        Description = (string)row["Description"]
+                    }).ToList();
         }
     }
 }

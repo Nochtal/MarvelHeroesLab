@@ -73,7 +73,14 @@ namespace MarvelHeroesLab
         private void btnOpenVillains_Click(object sender, EventArgs e)
         {
             // Button to open the form for Villains
-            if (frmVillains != null) frmVillains.Show();
+            if (frmVillains != null)
+            {
+                if (frmVillains.IsDisposed)
+                {
+                    frmVillains = new Villains();
+                }
+                frmVillains.Show();
+            }
             else // If doesn't already exist, create a new one.
             {
                 frmVillains = new Villains();

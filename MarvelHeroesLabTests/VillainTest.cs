@@ -4,13 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MarvelHeroesLabTests
 {
     [TestClass]
-    public class UnitTest1
+    public class VillainTest
     {
         [TestMethod]
-        [DeploymentItem("Villians.db")]
-        public void TestMethod1()
+        [DeploymentItem(@"Marvel.db")]
+        public void GetVillainsTest()
         {
-            var villians = MarvelHeroesLabLibrary.Villian.GetAllVillians();
+            var villians = MarvelHeroesLabLibrary.Villain.GetAllVillians();
             Assert.IsTrue(villians.Count > 0);
         }
     }
