@@ -8,9 +8,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{16E0D90E-8DA6-46D7-AA4E-44EB3D94A510}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		Villians.db = Villians.db
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelHeroesLabLibrary", "MarvelHeroesLabLibrary\MarvelHeroesLabLibrary.csproj", "{737B6AA3-6FC0-4216-AABD-AFBDD4CECD8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarvelHeroesLabTests", "MarvelHeroesLabTests\MarvelHeroesLabTests.csproj", "{E9FABA20-AF5C-45AD-8115-43613EC63ED1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +29,10 @@ Global
 		{737B6AA3-6FC0-4216-AABD-AFBDD4CECD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{737B6AA3-6FC0-4216-AABD-AFBDD4CECD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{737B6AA3-6FC0-4216-AABD-AFBDD4CECD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9FABA20-AF5C-45AD-8115-43613EC63ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9FABA20-AF5C-45AD-8115-43613EC63ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9FABA20-AF5C-45AD-8115-43613EC63ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9FABA20-AF5C-45AD-8115-43613EC63ED1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
