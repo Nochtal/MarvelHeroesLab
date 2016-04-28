@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MarvelHeroesLabLibrary;
 
 namespace MarvelHeroesLab
 {
@@ -15,6 +16,7 @@ namespace MarvelHeroesLab
         public SuperHeroes()
         {
             InitializeComponent();
+            heroBindingSource.DataSource = Hero.GetAllHeroes();
         }
     }
 }

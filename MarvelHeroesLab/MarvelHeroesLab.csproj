@@ -102,9 +102,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SuperHeroes.resx">
+      <DependentUpon>SuperHeroes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Villains.resx">
       <DependentUpon>Villains.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\MarvelHeroesLabLibrary.Hero.datasource" />
     <None Include="Properties\DataSources\MarvelHeroesLabLibrary.Villain.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

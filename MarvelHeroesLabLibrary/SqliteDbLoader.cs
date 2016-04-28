@@ -41,7 +41,7 @@ namespace MarvelHeroesLabLibrary
         private List<Power> GetAllPowersForVillian(int vId)
         {
             var sql = string.Format(
-                    "SELECT p.* FROM Power p JOIN PowerToVillain ptv ON p.Id = ptv.Id WHERE ptv.VillainId = {0}", vId);
+                    "SELECT p.* FROM Power p JOIN PowerToVillain ptv ON p.Id = ptv.PowerId WHERE ptv.VillainId = {0}", vId);
             var dataTable = ExecuteSql(sql).Tables[0];
             return (from DataRow row in dataTable.Rows
                 select new Power
@@ -69,7 +69,7 @@ namespace MarvelHeroesLabLibrary
         private List<Power> GetAllPowersForHero(int hId)
         {
             var sql = string.Format(
-                    "SELECT p.* FROM Power p JOIN PowerToHero pth ON p.Id = pth.Id WHERE pth.HeroId = {0}", hId);
+                    "SELECT p.* FROM Power p JOIN PowerToHero pth ON p.Id = pth.PowerId WHERE pth.HeroId = {0}", hId);
             var dataTable = ExecuteSql(sql).Tables[0];
             return (from DataRow row in dataTable.Rows
                     select new Power
